@@ -32,8 +32,10 @@ period = '3600'
 graph_path = '/tmp'
 # 邮箱服务器
 smtp_host = 'smtp.xxx.com'
-# 邮箱账户
-from_email = 'xxx@xxx.com'
+# 邮箱用户
+email_user = 'xxx'
+# 邮箱地址
+from_email = 'xxx@126.com'
 # 邮箱密码
 passwd = 'xxx'
 
@@ -132,7 +134,7 @@ def send_mail(to_email, subject, picture_name):
     msg['To'] = to_email
     smtp_server = smtplib.SMTP_SSL()
     smtp_server.connect(smtp_host, '465')
-    smtp_server.login(from_email, passwd)
+    smtp_server.login(email_user, passwd)
     smtp_server.sendmail(from_email, to_email, msg.as_string())
     smtp_server.quit()
 
